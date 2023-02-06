@@ -15,8 +15,8 @@
 
     <main class="min-vh-100 py-4">
 
-        <div class="container">
-            <div class="row">
+        <div class="container overflow-hidden">
+            <div class="row g-2">
                 <div class="col-auto mb-3">
                     <select name="archetype" id="archetype">
                         <option value="alien">Alien</option>
@@ -24,6 +24,13 @@
                 </div>
             </div>
             <div class="row my-card-container py-3 px-4 g-2">
+                <div class="col-12 bg-dark p-1">
+                    <h3 class="text-white">
+                        Found
+                        <span> {{ cardList.length }}</span>
+                        cards
+                    </h3>
+                </div>
                 <div class="single-card text-center col-3 pb-2" v-for="element in cardList">
                     <img :src="element.card_images[0].image_url_small" :alt="element.name">
                     <h5 class="text-white text-uppercase">

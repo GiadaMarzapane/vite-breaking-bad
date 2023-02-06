@@ -33,7 +33,6 @@ import axios from 'axios'
 <template>
   <AppHeader/>
   <AppMain :cardList="cards" />
-  <AppFooter />
   
 </template>
 
