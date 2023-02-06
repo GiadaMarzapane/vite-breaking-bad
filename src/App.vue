@@ -12,10 +12,18 @@ import axios from 'axios'
       AppMain,
       AppFooter
     },
+
+    data(){
+      return{
+        cards: []
+      }
+    },
+
     created() {
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
       .then((response) => {
-        
+        console.log(response.data.data.slice(0, 20));
+        this.cards = response.data.data.slice(0, 20);
       }
       );
     }
@@ -24,7 +32,7 @@ import axios from 'axios'
 
 <template>
   <AppHeader/>
-  <AppMain />
+  <AppMain :cardList="cards" />
   <AppFooter />
   
 </template>
