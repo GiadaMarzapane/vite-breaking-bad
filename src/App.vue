@@ -2,7 +2,8 @@
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
-import axios from 'axios'
+import axios from 'axios';
+import store from './store'
 
   export default{
     name: 'App',
@@ -15,7 +16,8 @@ import axios from 'axios'
 
     data(){
       return{
-        cards: []
+        cards: [],
+        store
       }
     },
 
