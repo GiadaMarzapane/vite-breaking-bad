@@ -1,11 +1,11 @@
 <script>
+import { store } from '../store';
 
     export default {
         name: 'AppMain',
-        props: {
-            cardList: {
-                type: Array,
-                default: []
+        data(){
+            return{
+                store
             }
         }
     }
@@ -27,11 +27,11 @@
                 <div class="col-12 bg-dark p-1">
                     <h3 class="text-white">
                         Found
-                        <span> {{ cardList.length }}</span>
+                        <span> {{ store.deck.length }}</span>
                         cards
                     </h3>
                 </div>
-                <div class="single-card text-center col-3 pb-2" v-for="element in cardList">
+                <div class="single-card text-center col-3 pb-2" v-for="element in store.deck">
                     <img :src="element.card_images[0].image_url_small" :alt="element.name">
                     <h5 class="text-white text-uppercase">
                         {{ element.name }}
