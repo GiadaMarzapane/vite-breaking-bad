@@ -19,7 +19,7 @@ import { store } from '../store';
             <div class="row g-2">
                 <div class="col-auto mb-3">
                     <select name="archetype" id="archetype">
-                        <option value="alien">Alien</option>
+                        <option v-for="element in store.archetypeDeck" :value="element">{{ element.archetype_name }}</option>
                     </select>
                 </div>
             </div>
