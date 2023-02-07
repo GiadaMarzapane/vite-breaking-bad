@@ -42,13 +42,17 @@ import { store } from './store';
 
     computed: {
 
+      myResearch(){
+
+      }
+
     }
   }
 </script>
 
 <template>
   <AppHeader/>
-  <AppMain />
+  <AppMain @search="myResearch" />
   
 </template>
 
