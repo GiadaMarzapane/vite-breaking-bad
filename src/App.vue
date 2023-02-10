@@ -14,22 +14,21 @@ import { store } from './store';
 
     data(){
       return{
-        store
+        store,
+        mainUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php'
       }
     },
 
     methods: {
       getMyDeck(){
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
+        axios.get(this.mainUrl)
           .then((response) => {
-            console.log('PRIMA CHIAMATA API', response.data.data.slice(0, 40));
             this.store.deck = response.data.data.slice(0, 40);
           });
       },
       getMyArchetypes(){
         axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
           .then((response) => {
-            console.log('CHIAMATA PER ARCHETYPE', response.data.slice(0,40));
             this.store.archetypeDeck = response.data.slice(0,40);
           });
       }
@@ -43,7 +42,7 @@ import { store } from './store';
     computed: {
 
       myResearch(){
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php',{
+        axios.get(this.mainUrl,{
           params: {
             archetype : this.store.mySelect
           }
